@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import Borad from "../components/Board";
+import Board from "../components/Board";
 
 class Index extends Component {
   state = {
@@ -18,7 +18,7 @@ class Index extends Component {
           <input type="number" value={this.state.area} onChange={this.handleChange} />
         </div>
 
-        <Borad area={this.state.area ? this.state.area : 0} />
+        <Board area={this.state.area ? this.state.area : 0} />
 
         <style jsx>{`
           .input-area {
