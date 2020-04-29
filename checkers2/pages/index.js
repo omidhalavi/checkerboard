@@ -18,7 +18,7 @@ class Index extends Component {
           <input type="number" value={this.state.area} onChange={this.handleChange} />
         </div>
 
-        <Board area={this.state.area ? this.state.area : 0} />
+        <Board area={this.state.area ? parseInt(this.state.area) : 0}  />
 
         <style jsx>{`
           .input-area {
