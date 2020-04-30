@@ -1,9 +1,9 @@
 import Cell from "./Cell";
 
-export default ({ number, area }) => {
+export default ({ number, area, topColor, bottomColor, shape }) => {
   let row = [];
   for(let i = 1; i <= area; i++) {
-    row.push(<Cell key={`cell-${i}`} number={(number - 1) * area + i} area={area} />)
+    row.push(<Cell key={`cell-${i}`} number={(number - 1) * area + i} area={area} topColor={topColor} bottomColor={bottomColor} shape={shape} />)
   }
   return (
     <div className="row">

@@ -1,9 +1,10 @@
 import Row from "./Row";
 
-export default ({ area }) => {
+export default (props) => {
+  const { area } = props;
   let rows = [];
   for(let i = 1; i <= area; i++) {
-    rows.push(<Row key={`row-${i}`} number={i} area={area} />)
+    rows.push(<Row key={`row-${i}`} number={i} {...props} />)
   }
   return (
     <div className="board">

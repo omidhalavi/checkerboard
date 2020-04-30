@@ -1,24 +1,41 @@
 import React, { Component } from "react";
 import Board from "../components/Board";
+import Controls from "../components/Controls";
 
 class Index extends Component {
   state = {
-    area: 8
+    area: 8,
+    topColor: "red",
+    bottomColor: "grey",
+    shape: "circle"
   }
 
   handleChange = (e) => {
     this.setState({ area: e.target.value })
   }
 
+  handleColor = () => {
+    if(this.state.topColor === "red") {
+      this.setState({ topColor: "grey", bottomColor: "red" });
+    } else {
+      this.setState({ topColor: "red", bottomColor: "grey" });
+    }
+  }
+
+  handleShape = (e) => {
+    this.setState({ shape: e.target.value })
+  }
+
   render() {
+    const { area, topColor, bottomColor, shape } = this.state;
     return (
       <div className="main">
         <div className="input-area">
           <label>Enter a Number</label>
-          <input type="number" value={this.state.area} onChange={this.handleChange} />
+          <input type="number" value={area} onChange={this.handleChange} />
         </div>
-
-        <Board area={this.state.area ? parseInt(this.state.area) : 0}  />
+        <Controls color={topColor} shape={shape} handleColor={this.handleColor} handleShape={this.handleShape} />
+        <Board area={area ? parseInt(area) : 0} topColor={topColor} bottomColor={bottomColor} shape={shape} />
 
         <style jsx>{`
           .input-area {
